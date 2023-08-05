@@ -1,0 +1,32 @@
+Algoritmo sum_matrix
+	Si el número de columnas de matx1 no es igual al número de filas de matx2,
+        Lanzar una excepción indicando que las matrices no son posibles para la multiplicación.
+	Fin Si
+		
+		Definir fil1 como el número de filas de matrx1
+		Definir col1 como el número de columnas de matrx1
+		Definir col2 como el número de columnas de matrx2
+		Crear una matriz result de tamaño fil1 x col2 para guardar el resultado final 
+			
+		Función Mult_recur(i, j, k):
+			Si k es igual a col1,
+				Retornar col1  
+			Fin Si
+			
+			result[i, j] += matrx1[i, k] * matx2[k, j]
+			Mult_recur(i, j, k + 1)
+			Mult_recur(i, j + 1, 0)
+		Fin Función
+		
+		Mult_recur(0, 0, 0)
+		
+		Retornar result
+	Fin Función
+	
+	// Ejemplo de uso:
+	matriz1 = [[1, 2, 3], [4, 5, 6]]
+	matriz2 = [[7, 8, 9, 10], [11, 12, 13, 14], [15, 16, 17, 18]]
+	resultado = suma_matrix(matx1, matx2)
+	
+	Mostrar resultado
+FinAlgoritmo
