@@ -1,0 +1,101 @@
+ *EJERCICIO 1: Cree una funcion recursiva que resiva un entero y retorne cuantos digitos tiene que son multiplos de 2 y 4(no tener en cuenta el 0):*
+
+Funcion multiplos_dos_y_cuantro(num1, contador):
+	Definir num1 Como Entero; 
+	Escribir "ingrese un numeroque sea entero"
+	Leer num1
+	contador = 0 
+	Si num1 = 0 Entonces
+		Escribir contador
+	SiNo
+		digito = num1 MOD 10 
+		Si 	digito <> 0 y (digito MOD 2 = 0 y digito MOD 4 = 0) Entonces
+			contador = contador + 1 
+		num1 = num1 / 10 
+		Escribir  multiplos_dos_y_cuantro(num1, contador)
+		Fin Si
+	Fin Si
+FinFuncion
+
+funcion contar_multiplos(num1):
+	Definir num1 Como Entero;
+	si num1 = 0 Entonces
+		Escribir  0 
+	SiNo
+		Escribir multiplos_dos_y_cuantro(num1, contador)
+	FinSi
+FinFuncion
+
+*EJERCICIO 2: Crear una funcion no recursiva solo la segunda mitad de un string(mod)*
+
+Funcion cambiar_segunda_ mitad(palabra): 
+		definir palabra Como Caracter; 
+		leer palabra
+		long= Longitud(palabra)
+		mitad = long / 2
+		segunda_mitad = ""
+		Para i = long - 1 Hasta mitad Hacer
+			segunda_mitad = segunda_mitad + obtener_cadena(cadena, i)
+		FinPara
+		resultado = Subcadena(cadena, 0, mitad + segunda_mitad) 
+		escribir resultado
+	
+FinFuncion
+
+*EJERCICIO 3 = Crear una funcion recursiva que calcule la sumatoria de todos los numeros impares de una matriz*
+
+Funcion sumatoria_numeros_impares_matriz(matriz, fila_actual, columna_actual)
+	si fila_actual = Longitud(matriz) Entonces
+		Escribir 0 
+	FinSi
+	valor_actual = matriz[fila_actual][columna_actual]
+	suma_resto = sumatoria_numeros_impares_matriz(matriz, fila_actual + (columna_actual + 1) / Longitud(matriz), (columna_actual + 1 ) MOD Longitud(matriz))
+	si valor_actual MOD 2 = 1 Entonces
+		escribir valor_actual + suma_restante
+	SiNo
+		Escribir suma_restante
+	FinSi
+FinFuncion
+
+*EJERCICIO 4 = Crear una funcion recursiva que resiva una lista, un elemento y un indice y que retorne si el elemento esta en la lista y en el indice dado*
+
+Funcion lista_elemento_en_indice(mi_lista, elemento, indice)
+	Definir elemento, indice Como Entero; 
+	si Longitud(mi_lista)= 0 Entonces
+		Escribir Falso
+	SiNo 
+		si Longitud(mi_lista) < indice Entonces
+			escribir "el indice no fue posible de encontrado"
+		SiNo
+			Escribir "el indice fue encontrado"
+		FinSi
+		si Longitud(mi_lista) >= 1 Entonces
+			Escribir Longitud(lista)
+		SiNo
+			si mi_lista[indice]= elemento Entonces
+				Escribir Verdadero
+			SiNo
+				Escribir lista_elemento_en_indice(mi_lista, elemento, indice + 1)
+			FinSi
+		FinSi
+	FinSi
+FinFuncion
+
+*EJERCICIO 5: Cree una funcion recursiva que resiva un string alfanumerico que extraiga los digitos de un strig y retorne el numero formado de todos los digitos*
+
+Funcion extraer_digitos_y_formar_numeros(cadena, indice_actual, numero_actual)
+	indice_actual = 0
+	numero_actual =0 
+	si indice_actual = Longitud(cadena) Entonces
+		Escribir numero_actual 
+	FinSi
+	caracter_actual = cadena[indice_actual]
+	si caracter_actual.esdigito Entonces
+		digito = convertir_a_entero(caracter_actual)
+		nuevo_numero = numero_actual * 10 + digito 
+		Escribir extraer_digitos_y_formar_numeros(cadena, indice_actual, +1,  numero_nuevo)
+	SiNo
+		Escribir extraer_digitos_y_formar_numeros(cadena, indice_actual, +1,  numero_actual)
+	FinSi
+	
+FinFuncion
