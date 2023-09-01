@@ -1,0 +1,32 @@
+1.Agregar un nodo a una lista ligada que esta ordenada de forma ascendente y no se permiten numeros duplicados:
+
+Algoritmo insertar_nodo
+clase nodo: 
+	Funcion iniciar (self, valor): 
+			self.valor = valor
+			self.siguiente = null 
+		funcion insertar_nodo(lista, valor): 
+				si list = null Entonces
+					Escribir nodo(valor)
+				FinSi
+				
+				si valor < list.valor Entonces
+					nuevo_nodo = nodo(valor)
+					nuevo_nodo.siguiente= list
+					Escribir  nuevo_nodo
+				FinSi
+				list.siguiente = insertar_nodo(list.siguiente, valor)
+				
+				cabeza = nodo(1)
+				cabeza.siguiente = nodo(5)
+				cabeza.siguiente.siguiente = nodo(7)
+				cabeza.siguiente.siguiente.siguiente= nodo(10)
+				cabeza = agregar_nodo(cabeza, 4)
+				nodo_reciente = cabeza 
+			Mientras nodo_reciente no es null: 
+					Escribir (nodo_reciente.valor)
+					nodo_reciente= nodo_reciente.siguiente
+
+	
+	
+FinAlgoritmo
